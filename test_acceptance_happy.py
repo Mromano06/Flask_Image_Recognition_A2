@@ -83,3 +83,7 @@ def test_acceptance_valid_image_size_upload(client):
 
     assert response.status_code == 200
     assert b"Prediction" in response.data
+
+def test_ci_failure_demonstration():
+    """Demonstrate GitHub Actions detecting a failed test."""
+    assert 1 == 2
