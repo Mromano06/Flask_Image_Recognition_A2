@@ -17,6 +17,16 @@ def main():
 @app.route('/prediction', methods=['POST'])
 def predict_image_file():
     """Process an uploaded image and return a prediction."""
+
+    print("DEBUG: Prediction route was reached!")
+
+    # Check if the request has a valid photo before the try
+    if 'file' not in request.files:
+        return render_template(
+            "result.html",
+            err="File cannot be processed."
+        )
+
     try:
         img = preprocess_img(request.files['file'].stream)
         pred = predict_result(img)

@@ -3,6 +3,13 @@
 from io import BytesIO
 import pytest
 
+def test_homepage(client):
+    """Verify that the Flask homepage is accessible."""
+    response = client.get("/")
+
+    assert response.status_code == 200
+    assert b"<html" in response.data.lower()
+
 def test_acceptance_successful_upload(client):
     """
     Test Case: Successful Upload of a Valid Image File
