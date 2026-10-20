@@ -4,7 +4,14 @@ from io import BytesIO
 import pytest
 
 def test_homepage(client):
-    """Verify that the Flask homepage is accessible."""
+    """
+        Test Case: Homepage Opens Properly
+        - Purpose: ensures "/" route works as expected
+        - Method:
+            - Client does a get on the / route
+            - Assert the response status code is 200.
+            - Make sure the route works
+        """
     response = client.get("/")
 
     assert response.status_code == 200
